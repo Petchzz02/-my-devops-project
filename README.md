@@ -25,13 +25,22 @@ This project serves as a hands-on learning platform for DevOps concepts includin
 git clone https://github.com/Petchzz02/-my-devops-project.git
 cd -my-devops-project
 
-# Run with Docker Compose
-docker-compose up -d
-
-# Or run locally
+# Install dependencies and run locally
 npm install
 npm start
+
+# Or run with Docker (Note: Docker build needs fixing - use local for now)
+# docker-compose up
+
+# Use Makefile for easy commands
+make help       # Show all available commands
+make setup      # Install dependencies
+make dev        # Start development server
+make test       # Run tests
+make ci         # Run full CI pipeline locally
 ```
+
+> **Note**: Docker containerization is implemented but currently has a module resolution issue. The application works perfectly when run locally with `npm start`. Docker fix is in progress.
 
 ## 🛠 DevOps Tools & Technologies
 

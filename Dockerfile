@@ -4,11 +4,13 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package.json package-lock.json ./
-RUN npm ci --production && npm cache clean --force
+# Copy package files
+COPY package*.json ./
 
-# Copy application code
+# Install dependencies (using npm install instead of npm ci for now)
+RUN npm install --production && npm cache clean --force
+
+# Copy source code
 COPY src/ ./src/
 
 # Expose port
